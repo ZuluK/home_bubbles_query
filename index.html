@@ -1,0 +1,70 @@
+<html>
+  <body>
+    {# query bubble macro #}
+    {% macro query(copy, border_radius='20', font_size='16', text_color='#212121', bg_color='#E0E0E0', mso_height='40', mso_width="", class="", font_family='Roboto, Helvetica, Arial, sans-serif') %}
+      {# calculate MSO arcsize from mso_height & border_radius #}
+      {% set arc_size = (border_radius|int / mso_height|int ) * 100  %}
+      
+      <!--[if mso]>
+      <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:{{ mso_height }}px;v-text-anchor:middle;width:{{ mso_width }}px;" arcsize="{{ arc_size }}%" stroke="f" fillcolor="{{ bg_color }}">
+          <w:anchorlock/>
+          <center style="color:{{ text_color }};font-family:{{ font_family }};font-size:{{ font_size }}px;">
+            {{ copy }}
+          </center>
+      </v:roundrect>
+      <![endif]-->
+      <!--[if !mso]-->
+      <div class="query {{ class }}">
+        {{ copy }}
+      </div>
+      <!--[endif]-->
+    {% endmacro %}
+    
+    {# vertical spacer macro #}
+    {% macro spacer(height, colspan="1", class="") %}
+      <tr>
+        <td height="{{ height }}" colspan="{{ colspan }}" class="{{ class }}" style="mso-line-height-rule: exactly; height: {{ height }}px; font-size: {{ height }}px; line-height: {{ height }}px;"><!--[if mso]>&nbsp;<![endif]--></td>
+      </tr>
+    {% endmacro %}
+    
+    <table width="340" align="center">
+      <tr>
+        <td align="right">
+          {# execute macro for the query bubble #}
+          {{ query(query_copy_1, mso_width="250") }}
+        </td>
+      </tr>
+      {{ spacer(20) }}
+      <tr>
+        <td>
+          {{ query(query_copy_2, mso_width="310") }}
+        </td>
+      </tr>
+      {{ spacer(20) }}
+      <tr>
+        <td align="right">
+          {{ query(query_copy_3, mso_width="220") }}
+        </td>
+      </tr>
+      {{ spacer(20) }}
+      <tr>
+        <td>
+          {{ query(query_copy_4, mso_width="203") }}
+        </td>
+      </tr>
+      {{ spacer(20) }}
+      <tr>
+        <td align="right">
+          {{ query(query_copy_5, mso_width="215") }}
+        </td>
+      </tr>
+      {{ spacer(20) }}
+      <tr>
+        <td>
+          {{ query(query_copy_6, mso_width="103") }}
+        </td>
+      </tr>
+    </table>
+    
+  </body>
+</html>

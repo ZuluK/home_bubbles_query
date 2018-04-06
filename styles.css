@@ -1,0 +1,22 @@
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #212121;
+}
+
+table {
+  -premailer-cellpadding: 0;
+  -premailer-cellspacing: 0;
+}
+
+.query {
+  font-family: Google Sans, Roboto, Helvetica, Arial, sans-serif;
+  color: #212121;
+  background-color: #E0E0E0;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 13px 20px;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
